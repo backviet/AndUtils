@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ZTextView">
+        <attr name="useStroke" format="boolean" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeColor" format="color" />
+        <attr name="useFont" format="boolean" />
+        <attr name="fontName" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ZButton">
+        <attr name="btUseStroke" format="boolean" />
+        <attr name="btStrokeWidth" format="dimension" />
+        <attr name="btStrokeColor" format="color" />
+        <attr name="btUseFont" format="boolean" />
+        <attr name="btFontName" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ZRadioButton">
+        <attr name="rbUseStroke" format="boolean" />
+        <attr name="rbStrokeWidth" format="dimension" />
+        <attr name="rbStrokeColor" format="color" />
+        <attr name="rbUseFont" format="boolean" />
+        <attr name="rbFontName" format="string" />
+    </declare-styleable>
+</resources>
