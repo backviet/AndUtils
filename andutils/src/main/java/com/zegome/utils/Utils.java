@@ -63,6 +63,24 @@ public final class Utils {
     // ===========================================================
     // Getter & Setter
     // ===========================================================
+    public static boolean isEmulator() {
+        final String buildManufacturer = Build.MANUFACTURER;
+        final String buildModel = Build.MODEL;
+        return isGenymotionEmulator(buildManufacturer) || containsEmulatorHints(buildModel);
+    }
+
+    public static boolean isGenymotionEmulator(String buildManufacturer) {
+        return buildManufacturer != null &&
+                (buildManufacturer.contains("Genymotion") || buildManufacturer.equals("unknown"));
+    }
+
+    public static boolean containsEmulatorHints(String buildModel) {
+        return buildModel.startsWith("sdk")
+                || "google_sdk".equals(buildModel)
+                || buildModel.contains("Emulator")
+                || buildModel.contains("Android SDK");
+    }
+
     public static String getStringFileFromAssets(@NonNull final Context context, @NonNull final String fileDir) {
         String json = null;
         try {
