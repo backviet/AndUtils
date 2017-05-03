@@ -31,4 +31,12 @@
         <attr name="rbUseFont" format="boolean" />
         <attr name="rbFontName" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="ZCheckBox">
+        <attr name="cbUseStroke" format="boolean" />
+        <attr name="cbStrokeWidth" format="dimension" />
+        <attr name="cbStrokeColor" format="color" />
+        <attr name="cbUseFont" format="boolean" />
+        <attr name="cbFontName" format="string" />
+    </declare-styleable>
 </resources>

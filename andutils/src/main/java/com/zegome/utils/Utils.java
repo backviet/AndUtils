@@ -98,6 +98,15 @@ public final class Utils {
     }
 
     public static String getDateStrFromUTC(@NonNull final Context context, final String UTCStr) {
+        return getDateStrFromUTC(UTCStr, android.text.format.DateFormat.getDateFormat(context.getApplicationContext()));
+    }
+
+
+    public static String getDateStrFromUTC(final String UTCStr, final String targetPattern) {
+        return getDateStrFromUTC(UTCStr, new SimpleDateFormat(targetPattern));
+    }
+
+    public static String getDateStrFromUTC(final String UTCStr, final DateFormat targetDateFormat) {
         try {
             if (Utils.isStringEmptyorNull(UTCStr)) {
                 return UTCStr;
@@ -114,7 +123,7 @@ public final class Utils {
             }
 
             final Date date = mISO8601Local.parse(UTCStr);
-            final DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(context.getApplicationContext());
+            final DateFormat dateFormat = targetDateFormat;
             final String ret = dateFormat.format(date);
             return ret;
         } catch (ParseException e) {
@@ -122,6 +131,7 @@ public final class Utils {
             return UTCStr;
         }
     }
+
 
     public static Date getDateFromUTC(@NonNull final Context context, final String UTCStr) {
         try {
