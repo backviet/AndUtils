@@ -5,9 +5,8 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.util.AttributeSet;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
 
 import com.zegome.utils.R;
 import com.zegome.utils.font.FontHelper;
@@ -15,7 +14,7 @@ import com.zegome.utils.font.FontHelper;
 /**
  * Created by QuanLT on 2016/12/25.
  */
-public class ZCheckBox extends CheckBox {
+public class ZCheckBox extends AppCompatCheckBox {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -74,12 +73,12 @@ public class ZCheckBox extends CheckBox {
             return;
         }
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ZCheckBox);
-        mIsStroke = a.getBoolean(R.styleable.ZCheckBox_cbUseStroke, false);
-        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZCheckBox_cbStrokeWidth, 0);
-        mStrokeColor = a.getColor(R.styleable.ZCheckBox_cbStrokeColor, 0xffffffff);
+        mIsStroke = a.getBoolean(R.styleable.ZCheckBox_useStroke, false);
+        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZCheckBox_strokeWidth, 0);
+        mStrokeColor = a.getColor(R.styleable.ZCheckBox_strokeColor, 0xffffffff);
 
-        mIsCustomFont = a.getBoolean(R.styleable.ZCheckBox_cbUseFont, false);
-        mFontName = a.getString(R.styleable.ZCheckBox_cbFontName);
+        mIsCustomFont = a.getBoolean(R.styleable.ZCheckBox_useFont, false);
+        mFontName = a.getString(R.styleable.ZCheckBox_fontName);
 
         if (mIsCustomFont && (mFontName != null && !"".equals(mFontName))) {
             FontHelper.setCustomFont(this, mFontName, context);

@@ -6,7 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.widget.Button;
+import android.support.v7.widget.AppCompatButton;
 
 import com.zegome.utils.R;
 import com.zegome.utils.font.FontHelper;
@@ -14,7 +14,7 @@ import com.zegome.utils.font.FontHelper;
 /**
  * Created by QuanLT on 8/5/16.
  */
-public class ZButton extends Button {
+public class ZButton extends AppCompatButton {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -76,12 +76,12 @@ public class ZButton extends Button {
             return;
         }
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ZButton);
-        mIsStroke = a.getBoolean(R.styleable.ZButton_btUseStroke, false);
-        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZButton_btStrokeWidth, 0);
-        mStrokeColor = a.getColor(R.styleable.ZButton_btStrokeColor, 0xffffffff);
+        mIsStroke = a.getBoolean(R.styleable.ZButton_useStroke, false);
+        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZButton_strokeWidth, 0);
+        mStrokeColor = a.getColor(R.styleable.ZButton_strokeColor, 0xffffffff);
 
-        mCustomFont = a.getBoolean(R.styleable.ZButton_btUseFont, false);
-        mFontName = a.getString(R.styleable.ZButton_btFontName);
+        mCustomFont = a.getBoolean(R.styleable.ZButton_useFont, false);
+        mFontName = a.getString(R.styleable.ZButton_fontName);
 
         if (mCustomFont && (mFontName != null && !"".equals(mFontName))) {
             FontHelper.setCustomFont(this, mFontName, context);
