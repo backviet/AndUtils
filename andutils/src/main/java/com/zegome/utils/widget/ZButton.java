@@ -6,7 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.support.v7.widget.AppCompatButton;
+import android.widget.Button;
 
 import com.zegome.utils.R;
 import com.zegome.utils.font.FontHelper;
@@ -14,7 +14,7 @@ import com.zegome.utils.font.FontHelper;
 /**
  * Created by QuanLT on 8/5/16.
  */
-public class ZButton extends AppCompatButton {
+public class ZButton extends Button {
     // ===========================================================
     // Constants
     // ===========================================================
