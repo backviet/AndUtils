@@ -3,8 +3,12 @@ package com.zegome.utils.widget.pagers;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.animation.Interpolator;
+
+import com.zegome.utils.widget.XScrollDetector;
+import com.zegome.utils.widget.YScrollDetector;
 
 import java.lang.reflect.Field;
 
@@ -20,18 +24,23 @@ public class ZViewPager extends ViewPager {
 	private boolean isAnimation = true;
 
 	protected ZDurationScroller mScroller = null;
-	
+
+	private GestureDetector mGestureDetector;
+
+	private boolean mIsCheckGesture = true;
+
+
 	// ===========================================================
 	// Constructor
 	// ===========================================================
 	public ZViewPager(Context context) {
-		super(context);
-
-		postInitViewPager();
+		this(context, null);
 	}
 
 	public ZViewPager(Context context, AttributeSet attrs) {
 		super(context, attrs);
+
+		mGestureDetector = new GestureDetector(context, new XScrollDetector(2));
 
 		postInitViewPager();
 	}
@@ -74,8 +83,9 @@ public class ZViewPager extends ViewPager {
     public boolean onInterceptTouchEvent(MotionEvent event) {
         // Never allow swiping to switch between pages
     	if (isSwipe) {
-    		return super.onInterceptTouchEvent(event);
-    	}
+			return super.onInterceptTouchEvent(event)
+					&& (mIsCheckGesture ? mGestureDetector.onTouchEvent(event) : true);
+		}
         return false;
     }
 
@@ -83,7 +93,14 @@ public class ZViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent event) {
         // Never allow swiping to switch between pages
     	if (isSwipe) {
-    		return super.onTouchEvent(event);
+			super.onTouchEvent(event);
+			boolean result = mGestureDetector.onTouchEvent(event);
+			if (!result) {
+				if (event.getAction() == MotionEvent.ACTION_UP) {
+					result = true;
+				}
+			}
+			return result;
     	}
         return false;
     }

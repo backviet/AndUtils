@@ -9,24 +9,66 @@
     android:background="#ffffff"
     android:orientation="vertical">
 
-    <com.zegome.utils.widget.ZTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="18sp"
-        android:textColor="#000000"
-        app:strokeColor="@color/colorAccent"
-        app:strokeWidth="5dp"
-        app:useStroke="true"/>
+    <com.zegome.utils.widget.ZScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <com.zegome.utils.widget.ZButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="18sp"
-        android:textColor="#000000"
-        app:strokeColor="@color/colorAccent"
-        app:strokeWidth="5dp"
-        app:useStroke="true"/>
+            <com.zegome.utils.widget.ZTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="5dp"
+                app:useStroke="true"/>
+
+            <com.zegome.utils.widget.ZButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="5dp"
+                app:useStroke="true"/>
+
+            <com.zegome.utils.widget.pagers.ZViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+            </com.zegome.utils.widget.pagers.ZViewPager>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_long"
+                android:textSize="24sp"
+                android:textColor="#ff0000"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_long"
+                android:textSize="24sp"
+                android:textColor="#ff0000"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_long"
+                android:textSize="24sp"
+                android:textColor="#ff0000"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_long"
+                android:textSize="24sp"
+                android:textColor="#ff0000"/>
+        </LinearLayout>
+    </com.zegome.utils.widget.ZScrollView>
 
 </LinearLayout>

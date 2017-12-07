@@ -20,12 +20,14 @@ public class ZScrollView  extends ScrollView {
     // ===========================================================
     private GestureDetector mGestureDetector;
 
+    private boolean mIsCheckGesture = true;
+
     // ===========================================================
     // Constructors
     // ===========================================================
     public ZScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mGestureDetector = new GestureDetector(context, new YScrollDetector());
+        mGestureDetector = new GestureDetector(context, new YScrollDetector(3));
         setFadingEdgeLength(0);
     }
 
@@ -33,18 +35,51 @@ public class ZScrollView  extends ScrollView {
     // Getter & Setter
     // ===========================================================
 
+    public boolean isCheckGesture() {
+        return mIsCheckGesture;
+    }
+
+    public void setCheckGesture(boolean checkGesture) {
+        mIsCheckGesture = checkGesture;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         return super.onInterceptTouchEvent(ev)
-                && mGestureDetector.onTouchEvent(ev);
+                && (mIsCheckGesture ? mGestureDetector.onTouchEvent(ev) : true);
+    }
+
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev){
+//        mGestureDetector.onTouchEvent(ev);
+//        super.dispatchTouchEvent(ev);
+//        return true;
+//    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        super.onTouchEvent(event);
+        boolean result = mGestureDetector.onTouchEvent(event);
+        if (!result) {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                stopScrolling();
+                result = true;
+            }
+        }
+        return result;
     }
 
     // ===========================================================
     // Methods
     // ===========================================================
+    private void stopScrolling() {
+//        mScroller.forceFinished(true);
+//        fullScroll(SCROLL_AXIS_VERTICAL);
+    }
 
     // ===========================================================
     // Inner and Anonymous Classes

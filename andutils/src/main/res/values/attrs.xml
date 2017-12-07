@@ -30,6 +30,14 @@
         <attr name="fontName"/>
     </declare-styleable>
 
+    <declare-styleable name="ZToggleButton">
+        <attr name="useStroke"/>
+        <attr name="strokeWidth" />
+        <attr name="strokeColor"/>
+        <attr name="useFont"/>
+        <attr name="fontName"/>
+    </declare-styleable>
+
     <declare-styleable name="ZRadioButton">
         <attr name="useStroke"/>
         <attr name="strokeWidth" />

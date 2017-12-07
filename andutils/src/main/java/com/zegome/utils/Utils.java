@@ -162,19 +162,41 @@ public final class Utils {
     }
 
     public static Dialog getDialog(final Context context, final int layout) {
-        final Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         try {
+            final Dialog dialog = new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
             if (NONE != layout) {
                 dialog.setContentView(layout);
             }
+
+            return dialog;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return dialog;
+        return null;
+    }
+
+    public static Dialog getDialog(final Context context, final int layout, final int theme) {
+        try {
+            final Dialog dialog = new Dialog(context, theme);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            if (NONE != layout) {
+                dialog.setContentView(layout);
+            }
+
+            return dialog;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static final boolean isPackageInstalled(@NonNull Context context, String packagename) {
@@ -477,7 +499,7 @@ public final class Utils {
         return str.replaceAll("[\r\n]", "");
     }
 
-    public static int dpAsPixels(@NonNull final Context context, final int sizeInDp) {
+    public static int dpAsPixels(@NonNull final Context context, final float sizeInDp) {
         float scale = context.getResources().getDisplayMetrics().density;
         return dpAsPixels(sizeInDp, scale);
     }

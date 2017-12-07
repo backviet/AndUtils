@@ -19,18 +19,27 @@ public class ZNestedScrollView extends NestedScrollView{
     // Fields
     // ===========================================================
     private OnScrollListener mScrollListener;
+    private GestureDetector mGestureDetector;
+
+    private boolean mIsCheckGesture = true;
 
     // ===========================================================
     // Constructors
     // ===========================================================
     public ZNestedScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mGestureDetector = new GestureDetector(context, new YScrollDetector(5));
         setFadingEdgeLength(0);
     }
 
     // ===========================================================
     // Getter & Setter
     // ===========================================================
+
+    public void setCheckGesture(boolean checkGesture) {
+        mIsCheckGesture = checkGesture;
+    }
 
     public void setScrollListener(OnScrollListener scrollListener) {
         mScrollListener = scrollListener;
@@ -56,6 +65,25 @@ public class ZNestedScrollView extends NestedScrollView{
         }
     }
 
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return super.onInterceptTouchEvent(ev)
+                && (mIsCheckGesture ? mGestureDetector.onTouchEvent(ev) : true);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // Never allow swiping to switch between pages
+        super.onTouchEvent(event);
+        boolean result = mGestureDetector.onTouchEvent(event);
+        if (!result) {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                result = true;
+            }
+        }
+        return result;
+    }
+
     // ===========================================================
     // Methods
     // ===========================================================
@@ -63,6 +91,7 @@ public class ZNestedScrollView extends NestedScrollView{
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
+
     public interface OnScrollListener {
         void onStop();
         void onStart();
