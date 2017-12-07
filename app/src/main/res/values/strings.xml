@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndUtils</string>
+
+    <string name="text_long">Drawing a UI is only one part of creating a custom view. You also need to make your view respond to user input in a way that closely resembles the real-world action you\'re mimicking. Objects should always act in the same way that real objects do. For example, images should not immediately pop out of existence and reappear somewhere else, because objects in the real world don\'t do that. Instead, images should move from one place to another.
+
+Users also sense subtle behavior or feel in an interface, and react best to subtleties that mimic the real world. For example, when users fling a UI object, they should sense friction at the beginning that delays the motion, and then at the end sense momentum that carries the motion beyond the fling.
+
+This lesson demonstrates how to use features of the Android framework to add these real-world behaviors to your custom view.
+
+</string>
 </resources>

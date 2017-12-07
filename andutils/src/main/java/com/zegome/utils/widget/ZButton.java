@@ -76,12 +76,12 @@ public class ZButton extends Button {
             return;
         }
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ZButton);
-        mIsStroke = a.getBoolean(R.styleable.ZButton_btUseStroke, false);
-        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZButton_btStrokeWidth, 0);
-        mStrokeColor = a.getColor(R.styleable.ZButton_btStrokeColor, 0xffffffff);
+        mIsStroke = a.getBoolean(R.styleable.ZButton_useStroke, false);
+        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZButton_strokeWidth, 0);
+        mStrokeColor = a.getColor(R.styleable.ZButton_strokeColor, 0xffffffff);
 
-        mCustomFont = a.getBoolean(R.styleable.ZButton_btUseFont, false);
-        mFontName = a.getString(R.styleable.ZButton_btFontName);
+        mCustomFont = a.getBoolean(R.styleable.ZButton_useFont, false);
+        mFontName = a.getString(R.styleable.ZButton_fontName);
 
         if (mCustomFont && (mFontName != null && !"".equals(mFontName))) {
             FontHelper.setCustomFont(this, mFontName, context);

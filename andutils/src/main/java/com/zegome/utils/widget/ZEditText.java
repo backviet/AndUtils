@@ -75,12 +75,12 @@ public class ZEditText extends EditText {
             return;
         }
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ZEditText);
-        mIsStroke = a.getBoolean(R.styleable.ZEditText_etUseStroke, false);
-        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZEditText_etStrokeWidth, 0);
-        mStrokeColor = a.getColor(R.styleable.ZEditText_etStrokeColor, 0xffffffff);
+        mIsStroke = a.getBoolean(R.styleable.ZEditText_useStroke, false);
+        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZEditText_strokeWidth, 0);
+        mStrokeColor = a.getColor(R.styleable.ZEditText_strokeColor, 0xffffffff);
 
-        mIsCustomFont = a.getBoolean(R.styleable.ZEditText_etUseFont, false);
-        mFontName = a.getString(R.styleable.ZEditText_etFontName);
+        mIsCustomFont = a.getBoolean(R.styleable.ZEditText_useFont, false);
+        mFontName = a.getString(R.styleable.ZEditText_fontName);
 
         if (mIsCustomFont && (mFontName != null && !"".equals(mFontName))) {
             FontHelper.setCustomFont(this, mFontName, context);

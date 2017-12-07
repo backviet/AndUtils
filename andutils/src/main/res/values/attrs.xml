@@ -1,42 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="useStroke" format="boolean" />
+    <attr name="strokeWidth" format="dimension" />
+    <attr name="strokeColor" format="color" />
+    <attr name="useFont" format="boolean" />
+    <attr name="fontName" format="string" />
+
     <declare-styleable name="ZTextView">
-        <attr name="useStroke" format="boolean" />
-        <attr name="strokeWidth" format="dimension" />
-        <attr name="strokeColor" format="color" />
-        <attr name="useFont" format="boolean" />
-        <attr name="fontName" format="string" />
+        <attr name="useStroke"/>
+        <attr name="strokeWidth" />
+        <attr name="strokeColor"/>
+        <attr name="useFont"/>
+        <attr name="fontName"/>
     </declare-styleable>
 
     <declare-styleable name="ZEditText">
-        <attr name="etUseStroke" format="boolean" />
-        <attr name="etStrokeWidth" format="dimension" />
-        <attr name="etStrokeColor" format="color" />
-        <attr name="etUseFont" format="boolean" />
-        <attr name="etFontName" format="string" />
+        <attr name="useStroke"/>
+        <attr name="strokeWidth" />
+        <attr name="strokeColor"/>
+        <attr name="useFont"/>
+        <attr name="fontName"/>
     </declare-styleable>
 
     <declare-styleable name="ZButton">
-        <attr name="btUseStroke" format="boolean" />
-        <attr name="btStrokeWidth" format="dimension" />
-        <attr name="btStrokeColor" format="color" />
-        <attr name="btUseFont" format="boolean" />
-        <attr name="btFontName" format="string" />
+        <attr name="useStroke"/>
+        <attr name="strokeWidth" />
+        <attr name="strokeColor"/>
+        <attr name="useFont"/>
+        <attr name="fontName"/>
+    </declare-styleable>
+
+    <declare-styleable name="ZToggleButton">
+        <attr name="useStroke"/>
+        <attr name="strokeWidth" />
+        <attr name="strokeColor"/>
+        <attr name="useFont"/>
+        <attr name="fontName"/>
     </declare-styleable>
 
     <declare-styleable name="ZRadioButton">
-        <attr name="rbUseStroke" format="boolean" />
-        <attr name="rbStrokeWidth" format="dimension" />
-        <attr name="rbStrokeColor" format="color" />
-        <attr name="rbUseFont" format="boolean" />
-        <attr name="rbFontName" format="string" />
+        <attr name="useStroke"/>
+        <attr name="strokeWidth" />
+        <attr name="strokeColor"/>
+        <attr name="useFont"/>
+        <attr name="fontName"/>
     </declare-styleable>
 
     <declare-styleable name="ZCheckBox">
-        <attr name="cbUseStroke" format="boolean" />
-        <attr name="cbStrokeWidth" format="dimension" />
-        <attr name="cbStrokeColor" format="color" />
-        <attr name="cbUseFont" format="boolean" />
-        <attr name="cbFontName" format="string" />
+        <attr name="useStroke"/>
+        <attr name="strokeWidth" />
+        <attr name="strokeColor"/>
+        <attr name="useFont"/>
+        <attr name="fontName"/>
     </declare-styleable>
 </resources>

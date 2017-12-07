@@ -5,16 +5,17 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v7.widget.AppCompatCheckBox;
 import android.util.AttributeSet;
+import android.widget.Button;
+import android.widget.ToggleButton;
 
 import com.zegome.utils.R;
 import com.zegome.utils.font.FontHelper;
 
 /**
- * Created by QuanLT on 2016/12/25.
+ * Created by QuanLT on 8/5/16.
  */
-public class ZCheckBox extends AppCompatCheckBox {
+public class ZToggleButton extends ToggleButton {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -26,20 +27,23 @@ public class ZCheckBox extends AppCompatCheckBox {
     private int mStrokeWidth = 0;
     private int mStrokeColor;
 
-    private boolean mIsCustomFont = false;
+    private boolean mCustomFont = false;
     private String mFontName = null;
 
+
     // ===========================================================
-    // Constructor
+    // Constructors
     // ===========================================================
-    public ZCheckBox(Context context) {
+    public ZToggleButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        initView(context, attrs);
+    }
+
+    public ZToggleButton(Context context) {
         this(context, null);
     }
 
-    public ZCheckBox(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initView(context, attrs);
-    }
 
     // ===========================================================
     // Getter & Setter
@@ -48,9 +52,9 @@ public class ZCheckBox extends AppCompatCheckBox {
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
+
     @Override
     protected void onDraw(Canvas canvas) {
-
         if (mIsStroke) {
             ColorStateList states = getTextColors();
             getPaint().setStyle(Paint.Style.STROKE);
@@ -72,21 +76,23 @@ public class ZCheckBox extends AppCompatCheckBox {
         if (attrs == null) {
             return;
         }
-        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ZCheckBox);
-        mIsStroke = a.getBoolean(R.styleable.ZCheckBox_useStroke, false);
-        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZCheckBox_strokeWidth, 0);
-        mStrokeColor = a.getColor(R.styleable.ZCheckBox_strokeColor, 0xffffffff);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ZToggleButton);
+        mIsStroke = a.getBoolean(R.styleable.ZToggleButton_useStroke, false);
+        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZToggleButton_strokeWidth, 0);
+        mStrokeColor = a.getColor(R.styleable.ZToggleButton_strokeColor, 0xffffffff);
 
-        mIsCustomFont = a.getBoolean(R.styleable.ZCheckBox_useFont, false);
-        mFontName = a.getString(R.styleable.ZCheckBox_fontName);
+        mCustomFont = a.getBoolean(R.styleable.ZToggleButton_useFont, false);
+        mFontName = a.getString(R.styleable.ZToggleButton_fontName);
 
-        if (mIsCustomFont && (mFontName != null && !"".equals(mFontName))) {
+        if (mCustomFont && (mFontName != null && !"".equals(mFontName))) {
             FontHelper.setCustomFont(this, mFontName, context);
         }
         a.recycle();
     }
 
+
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
+
 }

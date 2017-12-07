@@ -5,8 +5,8 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.util.AttributeSet;
-import android.widget.RadioButton;
 
 import com.zegome.utils.R;
 import com.zegome.utils.font.FontHelper;
@@ -14,7 +14,7 @@ import com.zegome.utils.font.FontHelper;
 /**
  * Created by QuanLT on 2016/12/25.
  */
-public class ZRadioButton extends RadioButton {
+public class ZRadioButton extends AppCompatRadioButton {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -73,12 +73,12 @@ public class ZRadioButton extends RadioButton {
             return;
         }
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ZRadioButton);
-        mIsStroke = a.getBoolean(R.styleable.ZRadioButton_rbUseStroke, false);
-        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZRadioButton_rbStrokeWidth, 0);
-        mStrokeColor = a.getColor(R.styleable.ZRadioButton_rbStrokeColor, 0xffffffff);
+        mIsStroke = a.getBoolean(R.styleable.ZRadioButton_useStroke, false);
+        mStrokeWidth = a.getDimensionPixelSize(R.styleable.ZRadioButton_strokeWidth, 0);
+        mStrokeColor = a.getColor(R.styleable.ZRadioButton_strokeColor, 0xffffffff);
 
-        mIsCustomFont = a.getBoolean(R.styleable.ZRadioButton_rbUseFont, false);
-        mFontName = a.getString(R.styleable.ZRadioButton_rbFontName);
+        mIsCustomFont = a.getBoolean(R.styleable.ZRadioButton_useFont, false);
+        mFontName = a.getString(R.styleable.ZRadioButton_fontName);
 
         if (mIsCustomFont && (mFontName != null && !"".equals(mFontName))) {
             FontHelper.setCustomFont(this, mFontName, context);
