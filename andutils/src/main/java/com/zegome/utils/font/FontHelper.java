@@ -2,7 +2,7 @@ package com.zegome.utils.font;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.TextView;
 

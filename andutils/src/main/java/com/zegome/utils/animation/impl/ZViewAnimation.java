@@ -1,6 +1,6 @@
 package com.zegome.utils.animation.impl;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 
 import com.zegome.utils.animation.IAnimation;

@@ -3,7 +3,7 @@ package com.zegome.utils.widget.pagers;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.MotionEventCompat;
+import androidx.core.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 

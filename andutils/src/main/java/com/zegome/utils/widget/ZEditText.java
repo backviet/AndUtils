@@ -5,10 +5,9 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.zegome.utils.R;
 import com.zegome.utils.font.FontHelper;

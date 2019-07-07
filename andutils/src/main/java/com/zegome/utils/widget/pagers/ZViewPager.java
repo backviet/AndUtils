@@ -1,14 +1,13 @@
 package com.zegome.utils.widget.pagers;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.animation.Interpolator;
 
 import com.zegome.utils.widget.XScrollDetector;
-import com.zegome.utils.widget.YScrollDetector;
 
 import java.lang.reflect.Field;
 

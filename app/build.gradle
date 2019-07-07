@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion TARGET_SDK
+    compileSdkVersion COMPILE_SDK
     buildToolsVersion BUILD_TOOLS
 
     defaultConfig {
@@ -25,4 +25,5 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':andutils')
+    implementation 'androidx.appcompat:appcompat:1.0.2'
 }
